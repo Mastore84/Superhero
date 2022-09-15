@@ -60,7 +60,13 @@ public class Superhero {
     }
 
     public String toString(){
-      return "Superheltenavn: " + superheroName + "\nRigtige navn: " + realName + "\nÅr skabt: " + yearCreated + "\nSuperkrafter: " + superPowers + "\nEr menneske: " + isHuman + "\nStyrke: " + strength;
+        String isHumanString = "";
+        if (isHuman == true){
+            isHumanString = "JA";
+        } else if (isHuman == false) {
+            isHumanString = "NEJ";
+        }
+        return "Superheltenavn: " + superheroName + "\nRigtige navn: " + realName + "\nÅr skabt: " + yearCreated + "\nSuperkrafter: " + superPowers + "\nEr menneske: " + isHumanString + "\nStyrke: " + strength + "\n";
     }
 
 }

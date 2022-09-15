@@ -5,17 +5,19 @@ public class UserInterface {
     private int brugerValg = 0;
     private int numberOfSuperheroes = 0;
     Scanner sc = new Scanner(System.in);
+
     public void startProgram() {
-         System.out.println("""
-            VELKOMMEN TIL SUPERHERO-UNIVERSET!
-            1. Opret superhelt
-            2. Se alle superhelte
-            9. Afslut programmet
-                                            
-                """);
+        do {
+            System.out.println("""
+                    VELKOMMEN TIL SUPERHERO-UNIVERSET!
+                    1. Opret superhelt
+                    2. Se alle superhelte
+                    9. Afslut programmet
+                                                    
+                        """);
             brugerValg = sc.nextInt();
             sc.nextLine();
-            if(brugerValg == 1){
+            if (brugerValg == 1) {
                 boolean isHuman;
 
                 System.out.println("Indtast superheltenavn: ");
@@ -44,5 +46,6 @@ public class UserInterface {
                 System.exit(1);
 
             }
-        }
+        }while(brugerValg != 9);
     }
+}
