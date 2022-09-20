@@ -16,11 +16,11 @@ public class Database {
         return " ";
     }
 
-    public String searchSuperhero(String x){
+    public String searchSuperhero(String searchQuery){
      boolean isPresent = false;
-     for(Superhero y: database){
-         if(y.getSuperheroName().equals(x)){
-             System.out.println(y);
+     for(Superhero hero: database){
+         if(hero.getSuperheroName().equals(searchQuery)){
+             System.out.println(hero);
              isPresent = true;
          }
      }
