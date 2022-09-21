@@ -37,9 +37,10 @@ public class UserInterface {
                 database.addSuperhero(superheroName, realName, yearCreated, superPowers, isHuman, strength);
                 numberOfSuperheroes++;
             } else if (brugerValg == 2) {
+                System.out.println("Liste af superhelte:\n");
                 System.out.println(database.getArrayList(numberOfSuperheroes));
             } else if (brugerValg == 3) {
-                String searchQuery = "";
+                String searchQuery = sc.next();
                 database.searchSuperhero(searchQuery);
             } else if (brugerValg == 4) {
 

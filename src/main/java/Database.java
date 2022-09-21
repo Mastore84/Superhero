@@ -17,13 +17,13 @@ public class Database {
     }
 
     public String searchSuperhero(String searchQuery){
-     boolean isPresent = false;
-     for(Superhero hero: database){
-         if(hero.getSuperheroName().equals(searchQuery)){
-             System.out.println(hero);
-             isPresent = true;
-         }
-     }
+        boolean isPresent = false;
+        for(Superhero hero: database){
+            if(hero.getSuperheroName().equals(searchQuery)){
+                System.out.println(hero);
+                isPresent = true;
+            }
+        }
      if (!isPresent){
          System.out.println("Der findes ikke en superhelt i databasen med det navn.");
      }
