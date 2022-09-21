@@ -29,4 +29,12 @@ public class Database {
      }
         return " ";
     }
+
+    public ArrayList<Superhero> getSuperheroes(){
+        return database;
+    }
+
+    public int getSize(){
+        return database.size();
+    }
 }
