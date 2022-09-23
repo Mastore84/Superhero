@@ -11,6 +11,7 @@ public class Database {
 
     public String getArrayList(int x){
         for (int i = 0; i < x; i++){
+            System.out.println("Nr. " + (i + 1) + ":");
             System.out.println(database.get(i));
         }
         return " ";
@@ -24,12 +25,21 @@ public class Database {
                 isPresent = true;
             }
         }
-     if (!isPresent){
-         System.out.println("Der findes ikke en superhelt i databasen med det navn.");
-     }
+        if (!isPresent){
+            System.out.println("Der findes ikke en superhelt i databasen med det navn.");
+        }
         return " ";
     }
 
+    public void editSuperhero(int x){
+
+    }
+
+    public void deleteSuperhero(){
+
+    }
+
+    //methods for test purposes
     public ArrayList<Superhero> getSuperheroes(){
         return database;
     }
