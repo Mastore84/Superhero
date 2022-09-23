@@ -59,6 +59,7 @@ public class Superhero {
         this.superPowers = superPowers;
     }
 
+    //custom toString metode
     public String toString(){
         String isHumanString = "";
         if (isHuman == true){
