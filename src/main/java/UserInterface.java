@@ -40,6 +40,7 @@ public class UserInterface {
                 System.out.println("Liste af superhelte:\n");
                 System.out.println(database.getArrayList(numberOfSuperheroes));
             } else if (brugerValg == 3) {
+                System.out.println("Tast navnet. eller del af navnet, på den superhelt, du vil finde:");
                 String searchQuery = sc.next();
                 database.searchSuperhero(searchQuery);
             } else if (brugerValg == 4) {
@@ -54,7 +55,7 @@ public class UserInterface {
     public int readInteger(){
         while (!sc.hasNextInt()){
             String text = sc.next();
-            System.out.println("Du må ikke indtaste " + text + " , det skal være et helt tal.");
+            System.out.println("Du må ikke indtaste '" + text + "' , det skal være et helt tal, uden decimaler.");
         }
         return sc.nextInt();
     }
@@ -62,7 +63,7 @@ public class UserInterface {
     public double readDouble(){
         while (!sc.hasNextDouble()){
             String text = sc.next();
-            System.out.println("Du må ikke indtaste " + text + " , det skal være et tal, med eller uden decimaler.");
+            System.out.println("Du må ikke indtaste '" + text + "' , det skal være et tal, med eller uden decimaler.");
         }
         return sc.nextDouble();
     }
@@ -70,8 +71,8 @@ public class UserInterface {
     public boolean checkBoolean(){
         boolean shouldContinue = true;
         boolean isHuman = true;
-        String isHumanQ = sc.nextLine();
-        while (shouldContinue) {
+        String isHumanQ;
+        do {
             System.out.println("Tast venligst 'j' eller 'n'.");
             isHumanQ = sc.nextLine();
 
@@ -82,7 +83,7 @@ public class UserInterface {
                 isHuman = false;
                 shouldContinue = false;
             }
-        }
+        }while (shouldContinue);
         return isHuman;
     }
 }

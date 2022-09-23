@@ -19,7 +19,7 @@ public class Database {
     public String searchSuperhero(String searchQuery){
         boolean isPresent = false;
         for(Superhero hero: database){
-            if(hero.getSuperheroName().equals(searchQuery)){
+            if(hero.getSuperheroName().contains(searchQuery)){
                 System.out.println(hero);
                 isPresent = true;
             }
