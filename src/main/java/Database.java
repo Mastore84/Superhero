@@ -9,7 +9,7 @@ public class Database {
         database.add(superhero);
     }
 
-    public String getArrayList(int x){
+    public String showAllSuperheroes(int x){
         for (int i = 0; i < x; i++){
             System.out.println("Nr. " + (i + 1) + ":");
             System.out.println(database.get(i));
@@ -30,11 +30,13 @@ public class Database {
         }
         return " ";
     }
-
+    //TODO
     public void editSuperhero(int x){
+       Superhero hero = database.get(x - 1);
+
 
     }
-
+    //TODO
     public void deleteSuperhero(){
 
     }

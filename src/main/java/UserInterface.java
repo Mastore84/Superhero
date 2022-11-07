@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class UserInterface {
     private final Database database = new Database();
@@ -6,7 +7,7 @@ public class UserInterface {
     Scanner sc = new Scanner(System.in);
 
     public void startProgram() {
-        int brugerValg = 0;
+        int userChoice = 0;
         do {
             System.out.println("""
                     VELKOMMEN TIL SUPERHERO-UNIVERSET!
@@ -17,10 +18,11 @@ public class UserInterface {
                     5. Slet superhelt
                     9. Afslut programmet
                         """);
-            brugerValg = sc.nextInt();
+
+            userChoice = sc.nextInt();
             sc.nextLine();
 
-            if (brugerValg == 1) {
+            if (userChoice == 1) {
                 System.out.println("Indtast superheltenavn: ");
                 String superheroName = sc.nextLine();
                 System.out.println("Indtast rigtige navn: ");
@@ -36,30 +38,35 @@ public class UserInterface {
                 double strength = readDouble();
                 database.addSuperhero(superheroName, realName, yearCreated, superPowers, isHuman, strength);
                 numberOfSuperheroes++;
-            } else if (brugerValg == 2) {
+            } else if (userChoice == 2) {
                 System.out.println("Liste af superhelte:\n");
-                System.out.println(database.getArrayList(numberOfSuperheroes));
-            } else if (brugerValg == 3) {
+                System.out.println(database.showAllSuperheroes(numberOfSuperheroes));
+            } else if (userChoice == 3) {
                 System.out.println("Tast navnet. eller del af navnet, på den superhelt, du vil finde:");
                 String searchQuery = sc.next();
                 database.searchSuperhero(searchQuery);
-            } else if (brugerValg == 4) {
-                System.out.println("Liste af superhelte:\n");
-                System.out.println(database.getArrayList(numberOfSuperheroes));
-                System.out.println("\n Hvilken superhelt vil du ændre? Tast venligst nummer: ");
-                database.editSuperhero(sc.nextInt());
-            } else if(brugerValg == 5) {
+            } else if (userChoice == 4) {
+                if (numberOfSuperheroes == 0){
+                    System.out.println("Der er ingen superhelte at redigere.\n");
+                }else {
+                    System.out.println("Liste af superhelte:\n");
+                    System.out.println(database.showAllSuperheroes(numberOfSuperheroes));
+                    System.out.println("\n Hvilken superhelt vil du ændre? Tast venligst nummer: ");
+                    database.editSuperhero(sc.nextInt());
+                    sc.nextLine();
+                }
+            } else if(userChoice == 5) {
 
-            } else if (brugerValg == 9) {
+            } else if (userChoice == 9) {
                 System.exit(1);
             }
-        }while(brugerValg != 9);
+        }while(userChoice != 9);
     }
 
     public int readInteger(){
         while (!sc.hasNextInt()){
             String text = sc.next();
-            System.out.println("Du må ikke indtaste '" + text + "' , det skal være et helt tal, uden decimaler.");
+            System.out.println("Du må ikke indtaste '" + text + "' , tast venligst et nummer.");
         }
         return sc.nextInt();
     }
